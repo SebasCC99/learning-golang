@@ -3,11 +3,11 @@ package main
 import "math"
 
 func Perimeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.Width + rectangle.Heigth)
+	return 2 * (rectangle.Width + rectangle.Height)
 }
 
 func Area(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Heigth
+	return rectangle.Width * rectangle.Height
 }
 
 type Shape interface {
@@ -16,11 +16,11 @@ type Shape interface {
 
 type Rectangle struct {
 	Width  float64
-	Heigth float64
+	Height float64
 }
 
 func (r Rectangle) Area() float64 {
-	return r.Width * r.Heigth
+	return r.Width * r.Height
 }
 
 type Circle struct {
@@ -29,4 +29,13 @@ type Circle struct {
 
 func (c Circle) Area() float64 {
 	return math.Pi * math.Pow(c.Radius, 2)
+}
+
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+func (t Triangle) Area() float64 {
+	return (t.Height * t.Base) / 2
 }
